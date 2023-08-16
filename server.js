@@ -3,9 +3,9 @@ const app = require('./src/app');
 const PORT = 3055;
 
 const server = app.listen(PORT, () => {
-  console.log(`Web Service eCommerce start with ${PORT}`);
+    console.log(`Web Service eCommerce start with ${PORT}`);
 });
 
 process.on('SIGINT', () => {
-  server.close(() => console.log(` Exist server express`));
+    server.close(() => console.log(` Exist server express`));
 });
