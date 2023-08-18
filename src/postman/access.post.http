@@ -1,0 +1,11 @@
+@baseUrlDev=http://localhost:3055/v1/api/shop
+
+### Sign-up
+POST {{baseUrlDev}}/sign-up
+Content-Type: application/json
+
+{
+    "name": "Shop TipJS",
+    "email": "shoptipjs@gmail.com",
+    "password": "abc123"
+}
