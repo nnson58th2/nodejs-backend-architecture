@@ -3,6 +3,7 @@
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 
+const { BadRequestError } = require('../core/error.response');
 const { getInfoData } = require('../utils');
 const { createTokenPair } = require('../auth/authUtils');
 
@@ -19,70 +20,46 @@ const ROLE_SHOP = {
 
 class AccessService {
     static signUp = async ({ name, email, password }) => {
-        try {
-            // Check email exists??
-            const holderShop = await shopModel.findOne({ email }).lean();
-            if (holderShop) {
-                return {
-                    code: 400,
-                    metadata: null,
-                    message: 'Shop already registered!',
-                    status: 'error',
-                };
-            }
-
-            const passwordHash = await bcrypt.hash(password, 10);
-            const newShop = await shopModel.create({
-                name,
-                email,
-                password: passwordHash,
-                roles: [ROLE_SHOP.SHOP],
-            });
-            if (!newShop) {
-                return {
-                    code: 400,
-                    metadata: null,
-                    message: 'Shop creation failed!',
-                    status: 'error',
-                };
-            }
-
-            // Created privateKey, publicKey
-            const privateKey = crypto.randomBytes(64).toString('hex');
-            const publicKey = crypto.randomBytes(64).toString('hex');
-
-            const userId = newShop._id;
-            const keyStore = await KeyTokenService.createKeyToken({ userId, privateKey, publicKey });
-            if (!keyStore) {
-                return {
-                    code: 400,
-                    metadata: null,
-                    message: 'Key store error!',
-                    status: 'error',
-                };
-            }
-
-            // Created token pair
-            const tokens = await createTokenPair({ userId, email }, publicKey, privateKey);
-            console.log(`Created Token Success:: `, tokens);
-
-            return {
-                code: 201,
-                metadata: {
-                    shop: getInfoData({ fields: ['_id', 'name', 'email', 'createdAt'], object: newShop }),
-                    tokens,
-                },
-                message: 'Successfully created',
-                status: 'success',
-            };
-        } catch (error) {
-            return {
-                code: 400,
-                metadata: null,
-                message: error.message,
-                status: 'error',
-            };
+        // Check email exists??
+        const holderShop = await shopModel.findOne({ email }).lean();
+        if (holderShop) {
+            throw new BadRequestError('Shop already registered!');
         }
+
+        const passwordHash = await bcrypt.hash(password, 10);
+        const newShop = await shopModel.create({
+            name,
+            email,
+            password: passwordHash,
+            roles: [ROLE_SHOP.SHOP],
+        });
+        if (!newShop) {
+            throw new BadRequestError('Shop creation failed!');
+        }
+
+        // Created privateKey, publicKey
+        const privateKey = crypto.randomBytes(64).toString('hex');
+        const publicKey = crypto.randomBytes(64).toString('hex');
+
+        const userId = newShop._id;
+        const keyStore = await KeyTokenService.createKeyToken({ userId, privateKey, publicKey });
+        if (!keyStore) {
+            throw new BadRequestError('Key store error!');
+        }
+
+        // Created token pair
+        const tokens = await createTokenPair({ userId, email }, publicKey, privateKey);
+        console.log(`Created Token Success:: `, tokens);
+
+        return {
+            code: 201,
+            metadata: {
+                shop: getInfoData({ fields: ['_id', 'name', 'email', 'createdAt'], object: newShop }),
+                tokens,
+            },
+            message: 'Successfully created',
+            status: 'success',
+        };
     };
 }
 
