@@ -1,5 +1,6 @@
 'use strict';
 
+const { CREATED } = require('../core/success.response');
 const AccessService = require('../services/access.service');
 
 class AccessController {
@@ -8,7 +9,10 @@ class AccessController {
         console.log(`[P]::signUp::`, payload);
 
         const result = await AccessService.signUp(payload);
-        return res.status(201).json(result);
+        new CREATED({
+            message: 'Registered',
+            metadata: result,
+        }).send(res);
     };
 }
 
