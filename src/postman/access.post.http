@@ -10,3 +10,14 @@ x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53
     "email": "shoptipjs@gmail.com",
     "password": "abc123"
 }
+
+
+### Sign-in
+POST {{baseUrlDev}}/sign-in
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+
+{
+    "email": "shoptipjs@gmail.com",
+    "password": "abc123"
+}
