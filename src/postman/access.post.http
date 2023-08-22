@@ -21,3 +21,10 @@ x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53
     "email": "shoptipjs@gmail.com",
     "password": "abc123"
 }
+
+### Sign-out
+POST {{baseUrlDev}}/sign-out
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64e23e19a2290649cbff5102
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGUyM2UxOWEyMjkwNjQ5Y2JmZjUxMDIiLCJlbWFpbCI6InNob3B0aXBqczVAZ21haWwuY29tIiwiaWF0IjoxNjkyNTQ4NjMzLCJleHAiOjE2OTI3MjE0MzN9.JsUJ6_F_WJhyZCSYcJ5qiRVS5yUgqjmbAIFPpA6w08I

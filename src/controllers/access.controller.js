@@ -24,6 +24,14 @@ class AccessController {
             metadata: result,
         }).send(res);
     };
+
+    signOut = async (req, res, next) => {
+        const result = await AccessService.signOut(req.keyStore);
+        new OK({
+            message: 'Signed out successfully',
+            metadata: result,
+        }).send(res);
+    };
 }
 
 module.exports = new AccessController();
