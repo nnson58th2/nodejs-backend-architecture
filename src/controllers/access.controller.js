@@ -25,6 +25,16 @@ class AccessController {
         }).send(res);
     };
 
+    refreshToken = async (req, res, next) => {
+        const payload = req.body;
+
+        const result = await AccessService.refreshToken(payload.refreshToken);
+        new OK({
+            message: 'Get token successfully',
+            metadata: result,
+        }).send(res);
+    };
+
     signOut = async (req, res, next) => {
         const result = await AccessService.signOut(req.keyStore);
         new OK({
