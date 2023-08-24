@@ -9,14 +9,14 @@ const accessController = require('../../controllers/access.controller');
 
 const router = express.Router();
 
-router.post('/shop/sign-up', asyncHandler(accessController.signUp));
+router.post('/sign-up', asyncHandler(accessController.signUp));
 
-router.post('/shop/sign-in', asyncHandler(accessController.signIn));
+router.post('/sign-in', asyncHandler(accessController.signIn));
 
 router.use(authentication);
 
-router.post('/shop/sign-out', asyncHandler(accessController.signOut));
+router.post('/sign-out', asyncHandler(accessController.signOut));
 
-router.post('/shop/refresh-token', asyncHandler(accessController.refreshToken));
+router.post('/refresh-token', asyncHandler(accessController.refreshToken));
 
 module.exports = router;
