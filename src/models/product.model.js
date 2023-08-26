@@ -11,6 +11,9 @@ const ELECTRONIC_COLLECTION_NAME = 'Electronics';
 const CLOTHING_DOCUMENT_NAME = 'Clothing';
 const CLOTHING_COLLECTION_NAME = 'Clothings';
 
+const FURNITURE_DOCUMENT_NAME = 'Furniture';
+const FURNITURE_COLLECTION_NAME = 'Furniture';
+
 // Declare the Schema of the Mongo model
 const productSchema = new Schema(
     {
@@ -57,8 +60,23 @@ const clothingSchema = new Schema(
     }
 );
 
+// Define the product type clothing
+const furnitureSchema = new Schema(
+    {
+        productShop: { type: Schema.Types.ObjectId, ref: 'Shop' },
+        brand: { type: String, require: true },
+        size: String,
+        material: String,
+    },
+    {
+        timestamps: true,
+        collection: FURNITURE_COLLECTION_NAME,
+    }
+);
+
 module.exports = {
     product: model(PRODUCT_DOCUMENT_NAME, productSchema),
     electronic: model(ELECTRONIC_DOCUMENT_NAME, electronicSchema),
     clothing: model(CLOTHING_DOCUMENT_NAME, clothingSchema),
+    furniture: model(FURNITURE_DOCUMENT_NAME, furnitureSchema),
 };
