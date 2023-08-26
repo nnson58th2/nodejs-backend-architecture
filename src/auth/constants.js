@@ -2,8 +2,9 @@
 
 const HEADER = {
     API_KEY: 'x-api-key',
-    AUTHORIZATION: 'authorization',
     CLIENT_ID: 'x-client-id',
+    AUTHORIZATION: 'authorization',
+    REFRESH_TOKEN: 'refresh-token',
 };
 
 module.exports = {
