@@ -3,9 +3,26 @@
 const { Types } = require('mongoose');
 
 const { product } = require('../product.model');
+const { getSelectData, getUnSelectData } = require('../../utils');
 
 const queryProduct = async ({ query, limit, skip }) => {
     return await product.find(query).populate('productShop', 'name email -_id').sort({ updateAt: -1 }).skip(skip).limit(limit).lean().exec();
+};
+
+const getAllProducts = async (paginationPayload) => {
+    const { filter, page, pageSize, sort, select } = paginationPayload;
+
+    const skip = (page - 1) * pageSize;
+    const limit = pageSize;
+    const sortBy = sort === 'ctime' ? { _id: -1 } : { _id: 1 };
+
+    const products = await product.find(filter).sort(sortBy).skip(skip).limit(limit).select(getSelectData(select)).lean().exec();
+    return products;
+};
+
+const getProductById = async (productId, unSelect) => {
+    const products = await product.findById(productId).select(getUnSelectData(unSelect)).lean().exec();
+    return products;
 };
 
 const findAllDraftsForShop = async ({ query, limit, skip }) => {
@@ -63,6 +80,8 @@ const unPublishProductByShop = async ({ productShop, productId }) => {
 module.exports = {
     findAllDraftsForShop,
     findAllPublishForShop,
+    getAllProducts,
+    getProductById,
     searchProductByUser,
     publishProductByShop,
     unPublishProductByShop,

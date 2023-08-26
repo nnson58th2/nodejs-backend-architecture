@@ -6,9 +6,11 @@ const { BadRequestError } = require('../core/error.response');
 const {
     findAllDraftsForShop,
     findAllPublishForShop,
+    getAllProducts,
+    getProductById,
+    searchProductByUser,
     publishProductByShop,
     unPublishProductByShop,
-    searchProductByUser,
 } = require('../models/repositories/product.repo');
 
 // Define Factory class to create product
@@ -34,6 +36,10 @@ class ProductFactory {
         return await unPublishProductByShop({ productShop, productId });
     }
 
+    static async updateProduct({ keySearch }) {
+        return await updateProduct({ keySearch });
+    }
+
     static async getAllDraftsForShop({ productShop, limit = 50, skip = 0 }) {
         const query = { productShop, isDraft: true };
         return await findAllDraftsForShop({ query, limit, skip });
@@ -46,6 +52,26 @@ class ProductFactory {
 
     static async getListSearchProducts({ keySearch }) {
         return await searchProductByUser({ keySearch });
+    }
+
+    static async getAllProducts({ filter = { isPublished: true }, pageSize = 50, page = 1, sort = 'ctime', select }) {
+        if (!select) {
+            select = ['productName', 'productPrice', 'productThumb'];
+        }
+
+        const paginationPayload = {
+            filter,
+            page,
+            pageSize,
+            sort,
+            select,
+        };
+        return await getAllProducts(paginationPayload);
+    }
+
+    static async getProductById(productId) {
+        const unSelect = ['__v'];
+        return await getProductById(productId, unSelect);
     }
 }
 

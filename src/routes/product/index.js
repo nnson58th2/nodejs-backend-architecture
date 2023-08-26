@@ -9,6 +9,8 @@ const productController = require('../../controllers/product.controller');
 
 const router = express.Router();
 
+router.get('/', asyncHandler(productController.getAllProducts));
+router.get('/:productId', asyncHandler(productController.getProductById));
 router.get('/search', asyncHandler(productController.getListSearchProducts));
 
 router.use(authentication);

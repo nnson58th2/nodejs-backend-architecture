@@ -20,10 +20,10 @@ class ProductController {
             skip: req.query.skip,
         };
 
-        const result = await ProductServiceX.getAllDraftsForShop(payload);
+        const results = await ProductServiceX.getAllDraftsForShop(payload);
         new OK({
             message: 'Get all drafts for shop successfully',
-            metadata: result,
+            metadata: results,
         }).send(res);
     };
 
@@ -40,18 +40,36 @@ class ProductController {
             skip: req.query.skip,
         };
 
-        const result = await ProductServiceX.getAllPublishForShop(payload);
+        const results = await ProductServiceX.getAllPublishForShop(payload);
         new OK({
             message: 'Get all publish for shop successfully',
-            metadata: result,
+            metadata: results,
         }).send(res);
     };
 
     getListSearchProducts = async (req, res, next) => {
         const keySearch = req.query.keySearch;
-        const result = await ProductServiceX.getListSearchProducts({ keySearch });
+        const results = await ProductServiceX.getListSearchProducts({ keySearch });
         new OK({
             message: 'Get all products successfully',
+            metadata: results,
+        }).send(res);
+    };
+
+    getAllProducts = async (req, res, next) => {
+        const paginationPayload = req.query;
+        const results = await ProductServiceX.getAllProducts(paginationPayload);
+        new OK({
+            message: 'Get all products successfully',
+            metadata: results,
+        }).send(res);
+    };
+
+    getProductById = async (req, res, next) => {
+        const productId = req.params.productId;
+        const result = await ProductServiceX.getProductById(productId);
+        new OK({
+            message: 'Get product successfully',
             metadata: result,
         }).send(res);
     };
