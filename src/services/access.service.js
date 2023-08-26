@@ -120,6 +120,36 @@ class AccessService {
             tokens,
         };
     };
+
+    static refreshTokenV2 = async ({ keyStore, user, refreshToken }) => {
+        const { userId, email } = user;
+
+        const refreshTokensUsed = keyStore.refreshTokensUsed.includes(refreshToken);
+        if (refreshTokensUsed) {
+            await KeyTokenService.deleteKeyByUserId(userId);
+            throw new ForbiddenRequestError('Something went wrong happened! Please re-login.');
+        }
+
+        if (keyStore.refreshToken !== refreshToken) throw new AuthFailureError('Shop not registered!');
+
+        const foundShop = await findByEmail(email);
+        if (!foundShop) throw new AuthFailureError('Shop not registered!');
+
+        const tokens = await createTokenPair({ userId, email }, keyStore.publicKey, keyStore.privateKey);
+        await keyStore.updateOne({
+            $set: {
+                refreshToken: tokens.refreshToken,
+            },
+            $addToSet: {
+                refreshTokensUsed: refreshToken,
+            },
+        });
+
+        return {
+            user,
+            tokens,
+        };
+    };
 }
 
 module.exports = AccessService;

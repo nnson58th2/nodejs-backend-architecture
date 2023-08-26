@@ -32,6 +32,7 @@ const productSchema = new Schema(
 // Define the product type electronics
 const electronicSchema = new Schema(
     {
+        productShop: { type: Schema.Types.ObjectId, ref: 'Shop' },
         manufacturer: { type: String, require: true },
         model: String,
         color: String,
@@ -45,6 +46,7 @@ const electronicSchema = new Schema(
 // Define the product type clothing
 const clothingSchema = new Schema(
     {
+        productShop: { type: Schema.Types.ObjectId, ref: 'Shop' },
         brand: { type: String, require: true },
         size: String,
         material: String,
