@@ -1,6 +1,7 @@
 'use strict';
 
 const { model, Schema } = require('mongoose');
+const slugify = require('slugify');
 
 const PRODUCT_DOCUMENT_NAME = 'Product';
 const PRODUCT_COLLECTION_NAME = 'Products';
@@ -20,17 +21,37 @@ const productSchema = new Schema(
         productName: { type: String, require: true },
         productThumb: { type: String, require: true },
         productDescription: String,
+        productSlug: String,
         productPrice: { type: Number, require: true },
         productQuantity: { type: Number, require: true },
         productType: { type: String, require: true, enum: ['Electronics', 'Clothing', 'Furniture'] },
         productShop: { type: Schema.Types.ObjectId, ref: 'Shop' },
         productAttributes: { type: Schema.Types.Mixed, required: true },
+        productRatingsAverage: {
+            type: Number,
+            default: 4.5,
+            min: [1, 'Rating must be above 1.0'],
+            max: [5, 'Rating must be above 5.0'],
+            set: (val) => Math.round(val * 10) / 10,
+        },
+        productVariations: { type: Array, default: [] },
+        isDraft: { type: Boolean, default: true, index: true, select: false },
+        isPublished: { type: Boolean, default: false, index: true, select: false },
     },
     {
         timestamps: true,
         collection: PRODUCT_COLLECTION_NAME,
     }
 );
+
+// Create index for search
+productSchema.index({ productName: 'text', productDescription: 'text' });
+
+// Document middleware: runs before .save and .create()...
+productSchema.pre('save', function (next) {
+    this.productSlug = slugify(this.productName, { lower: true });
+    next();
+});
 
 // Define the product type electronics
 const electronicSchema = new Schema(

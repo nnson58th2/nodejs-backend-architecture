@@ -50,7 +50,6 @@ class AccessService {
 
         // Created token pair
         const tokens = await createTokenPair({ userId, email }, publicKey, privateKey);
-        console.log(`Created Token Success:: `, tokens);
 
         return {
             shop: getInfoData({ fields: ['_id', 'name', 'email', 'createdAt'], object: newShop }),
