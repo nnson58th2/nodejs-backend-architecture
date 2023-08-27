@@ -117,6 +117,21 @@ class ProductController {
             metadata: result,
         }).send(res);
     };
+
+    updateProduct = async (req, res, next) => {
+        const type = req.body.productType;
+        const productId = req.params.productId;
+        const payload = {
+            ...req.body,
+            productShop: req.user.userId,
+        };
+
+        const result = await ProductServiceX.updateProduct({ type, productId, payload });
+        new OK({
+            message: 'Update product for shop successfully',
+            metadata: result,
+        }).send(res);
+    };
     // END PATCH
 }
 

@@ -23,14 +23,14 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2Zl
 }
 
 ### Get all drafts for shop
-GET {{baseUrlDev}}/draft
+GET {{baseUrlDev}}/draft/all
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
 
 ### Get all publish for shop
-GET {{baseUrlDev}}/publish
+GET {{baseUrlDev}}/publish/all
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
@@ -70,3 +70,21 @@ Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+
+### Update product for shop
+PATCH {{baseUrlDev}}/64ea0721adc4ef7aa282a5c3
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+
+{
+    "productName": "Băng Quấn Bảo Vệ Khuỷu Tay Co Giãn Tốt",
+    "productType": "Clothing",
+    "productPrice": 999,
+    "productAttributes": {
+        "brand": "MRM Vietnam China",
+        "size": "XXL",
+        "material": "Thun"
+    }
+}

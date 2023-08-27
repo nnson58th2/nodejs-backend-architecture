@@ -21,7 +21,15 @@ const getAllProducts = async (paginationPayload) => {
 };
 
 const getProductById = async (productId, unSelect) => {
-    const products = await product.findById(productId).select(getUnSelectData(unSelect)).lean().exec();
+    const products = await product
+        .findOne({
+            _id: new Types.ObjectId(productId),
+            isDraft: false,
+            isPublished: true,
+        })
+        .select(getUnSelectData(unSelect))
+        .lean()
+        .exec();
     return products;
 };
 
@@ -77,6 +85,12 @@ const unPublishProductByShop = async ({ productShop, productId }) => {
     return modifiedCount;
 };
 
+const updateProductById = async ({ productId, payload, model, isNew = true }) => {
+    return await model.findByIdAndUpdate(productId, payload, {
+        new: isNew,
+    });
+};
+
 module.exports = {
     findAllDraftsForShop,
     findAllPublishForShop,
@@ -85,4 +99,5 @@ module.exports = {
     searchProductByUser,
     publishProductByShop,
     unPublishProductByShop,
+    updateProductById,
 };
