@@ -6,18 +6,18 @@ POST {{baseUrlDev}}
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 {
-    "productName": "New Jeans",
+    "productName": "Ao thun cao cap",
     "productThumb": "product_thumb",
-    "productDescription": "Hight-quanlity denim jeans",
-    "productPrice": 50,
-    "productQuantity": 5,
+    "productDescription": "Hight-quanlity ao thun",
+    "productPrice": 80,
+    "productQuantity": 8,
     "productType": "Clothing",
     "productAttributes": {
-        "brand": "levi s",
-        "size": "L",
+        "brand": "levi xl",
+        "size": "XL",
         "material": "Denim"
     }
 }
@@ -27,56 +27,56 @@ GET {{baseUrlDev}}/draft/all
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 ### Get all publish for shop
 GET {{baseUrlDev}}/publish/all
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 ### Get all search product for user
 GET {{baseUrlDev}}/search?keySearch=jean
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 ### Get all products for user
 GET {{baseUrlDev}}/
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 ### Get product by id for user
 GET {{baseUrlDev}}/64ea0721adc4ef7aa282a5c3
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 ### Publish product for shop
 PATCH {{baseUrlDev}}/publish/64ea0721adc4ef7aa282a5c3
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 ### Un-Publish product for shop
 PATCH {{baseUrlDev}}/un-publish/64ea0721adc4ef7aa282a5c3
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 ### Update product for shop
 PATCH {{baseUrlDev}}/64ea0721adc4ef7aa282a5c3
 Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMwNTg0OTIsImV4cCI6MTY5MzIzMTI5Mn0.qT2WlQOLHYMIXPEc8fb7uhf1Bp-EcK8dlQZIIgsOiuU
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTMzMjIwOTcsImV4cCI6MTY5MzQ5NDg5N30.IrwuI6HeZVJ4QBy5uCj_7H2td3upy32DhfqRjFhL7tQ
 
 {
     "productName": "Băng Quấn Bảo Vệ Khuỷu Tay Co Giãn Tốt",

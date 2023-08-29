@@ -15,6 +15,7 @@ const {
     unPublishProductByShop,
     updateProductById,
 } = require('../models/repositories/product.repo');
+const { insertInventory } = require('../models/repositories/inventory.repo');
 
 // Define Factory class to create product
 class ProductFactory {
@@ -96,7 +97,18 @@ class Product {
 
     // Create a new product
     async createProduct(productId) {
-        return await product.create({ ...this, _id: productId });
+        const productCreated = await product.create({ ...this, _id: productId });
+
+        // Add product stock in inventory collection
+        if (productCreated) {
+            await insertInventory({
+                productId: productCreated._id,
+                shopId: this.productShop,
+                stock: this.productQuantity,
+            });
+        }
+
+        return productCreated;
     }
 
     // Update product
