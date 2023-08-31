@@ -1,0 +1,61 @@
+@baseUrlDev=http://localhost:3055/v1/api/discount
+
+
+### Create a new discount by shop
+POST {{baseUrlDev}}
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTM0OTI2NDYsImV4cCI6MTY5MzY2NTQ0Nn0.-WWUGWR5pHytk8vnRvZjkR9aJyS2FykytC_djNX-ZBw
+
+{
+    "name": "Name percentage amount",
+    "description": "Name fixed amount description",
+    "type": "PERCENTAGE",
+    "value": 10,
+    "code": "SHOPJS-1133",
+    "startAt": "2023-09-01 09:00:00",
+    "endAt": "2023-09-03 09:00:00",
+    "maxUses": 100,
+    "usesCount": 0,
+    "maxUsesPerUser": 1,
+    "minOrderValue": 20000,
+    "maxValue": 30000,
+    "isActive": true,
+    "appliesTo": "ALL",
+    "productIds": ["64ea0721adc4ef7aa282a5c3", "64ee0bc395dc43a600c7a2d3"]
+
+}
+
+### Get products for codes
+GET {{baseUrlDev}}/list-product-code?code=SHOPJS&shopId=64ea05bcfe9f4fe2000b610c&page=1&limit=50
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+
+### Get list discount by shop
+GET {{baseUrlDev}}/discount
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTM0OTI2NDYsImV4cCI6MTY5MzY2NTQ0Nn0.-WWUGWR5pHytk8vnRvZjkR9aJyS2FykytC_djNX-ZBw
+
+### Discount amount by user
+POST {{baseUrlDev}}/amount
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTM0OTI2NDYsImV4cCI6MTY5MzY2NTQ0Nn0.-WWUGWR5pHytk8vnRvZjkR9aJyS2FykytC_djNX-ZBw
+
+{
+    "codeId": "SHOPJS",
+    "shopId": "64ea05bcfe9f4fe2000b610c",
+    "userId": "64ea05bcfe9f4fe2000b610c",
+    "products": [
+        {
+            "productId": "64ea0721adc4ef7aa282a5c3",
+            "quantity": 5,
+            "price": 120000
+        }
+    ]
+
+}
