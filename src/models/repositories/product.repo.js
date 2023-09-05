@@ -3,7 +3,7 @@
 const { Types } = require('mongoose');
 
 const { product } = require('../product.model');
-const { getSelectData, getUnSelectData } = require('../../utils');
+const { getSelectData, getUnSelectData, convertToObjectId } = require('../../utils');
 
 const queryProduct = async ({ query, limit, skip }) => {
     return await product.find(query).populate('productShop', 'name email -_id').sort({ updateAt: -1 }).skip(skip).limit(limit).lean().exec();
@@ -39,6 +39,10 @@ const findAllDraftsForShop = async ({ query, limit, skip }) => {
 
 const findAllPublishForShop = async ({ query, limit, skip }) => {
     return await queryProduct({ query, limit, skip });
+};
+
+const findProductById = async (productId) => {
+    return await product.findOne({ _id: convertToObjectId(productId) }).lean();
 };
 
 const searchProductByUser = async ({ keySearch }) => {
@@ -94,6 +98,7 @@ const updateProductById = async ({ productId, payload, model, isNew = true }) =>
 module.exports = {
     findAllDraftsForShop,
     findAllPublishForShop,
+    findProductById,
     getAllProducts,
     getProductById,
     searchProductByUser,

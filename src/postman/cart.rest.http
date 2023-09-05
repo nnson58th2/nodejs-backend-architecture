@@ -1,0 +1,63 @@
+@baseUrlDev=http://localhost:3055/v1/api/cart
+
+
+### Get all carts by user
+GET {{baseUrlDev}}?userId=1001
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTM4NDM0NTcsImV4cCI6MTY5NDAxNjI1N30.G-VlTIe_cV4OFYlGmY6b0Z47FQ26mrEq7ipTQFdwhLo
+
+### Add to cart by user
+POST {{baseUrlDev}}
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTM4NDM0NTcsImV4cCI6MTY5NDAxNjI1N30.G-VlTIe_cV4OFYlGmY6b0Z47FQ26mrEq7ipTQFdwhLo
+
+{
+    "userId": 1001,
+    "product": {
+        "productId": "64ea0721adc4ef7aa282a5c3",
+        "shopId": "64ea05bcfe9f4fe2000b610c",
+        "quantity": 10
+    }
+}
+
+### Update cart by user
+POST {{baseUrlDev}}/update
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTM4NDM0NTcsImV4cCI6MTY5NDAxNjI1N30.G-VlTIe_cV4OFYlGmY6b0Z47FQ26mrEq7ipTQFdwhLo
+
+{
+    "userId": 1001,
+    "shopOrderIds": [
+        {
+            "shopId": "64ea05bcfe9f4fe2000b610c",
+            "itemProducts": [
+                {
+                    "price": 999,
+                    "shopId": "64ea05bcfe9f4fe2000b610c",
+                    "productId": "64ea0721adc4ef7aa282a5c3",
+                    "oldQuantity": 10,
+                    "quantity": 8
+                }
+            ],
+            "version": 123
+        }
+    ]
+}
+
+### Delete cart item by user
+DELETE {{baseUrlDev}}
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTM4NDM0NTcsImV4cCI6MTY5NDAxNjI1N30.G-VlTIe_cV4OFYlGmY6b0Z47FQ26mrEq7ipTQFdwhLo
+
+{
+    "userId": 1001,
+    "productId": "64ea0721adc4ef7aa282a5c3"
+}

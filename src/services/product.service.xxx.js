@@ -63,7 +63,7 @@ class ProductFactory {
 
     static async getAllProducts({ filter = { isPublished: true }, pageSize = 50, page = 1, sort = 'ctime', select }) {
         if (!select) {
-            select = ['productName', 'productPrice', 'productThumb'];
+            select = ['productName', 'productPrice', 'productThumb', 'productShop'];
         }
 
         const paginationPayload = {
