@@ -1,0 +1,44 @@
+@baseUrlDev=http://localhost:3055/v1/api/checkout
+
+
+### Review checkout
+POST {{baseUrlDev}}/review
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTQxMDExOTcsImV4cCI6MTY5NDI3Mzk5N30.3Bc8renIndjZjDSGN0OcPPAuE0xFhxoRdsQBOjBHclM
+
+{
+    "cartId": "64f75abe7db18689b9560a52",
+    "userId": 1001,
+    "shopOrderIds": [
+        {
+            "shopId": "64ea05bcfe9f4fe2000b610c",
+            "shopDiscounts": [
+                {
+                    "shopId": "64ea05bcfe9f4fe2000b610c",
+                    "discountId": "64f0aaa98f7f43100a7f3d3c",
+                    "codeId": "SHOPJS"
+                }
+            ],
+            "itemProducts": [
+                {
+                    "productId": "64ea0721adc4ef7aa282a5c3",
+                    "price": 1234,
+                    "quantity": 8
+                }
+            ]
+        },
+        {
+            "shopId": "64ea05bcfe9f4fe2000b610c",
+            "shopDiscounts": [],
+            "itemProducts": [
+                {
+                    "productId": "64ea0721adc4ef7aa282a5c3",
+                    "price": 1234,
+                    "quantity": 8
+                }
+            ]
+        }
+    ]
+}

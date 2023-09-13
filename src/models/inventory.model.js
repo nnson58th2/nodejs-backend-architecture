@@ -12,7 +12,7 @@ const inventorySchema = new Schema(
         inventoryShopId: { type: Schema.Types.ObjectId, ref: 'Shop' },
         inventoryLocation: { type: String, default: 'unknown' },
         inventoryStock: { type: Number, require: true },
-        inventoryReservation: { type: Array, default: [] },
+        inventoryReservations: { type: Array, default: [] },
     },
     {
         timestamps: true,

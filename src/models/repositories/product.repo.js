@@ -45,6 +45,22 @@ const findProductById = async (productId) => {
     return await product.findOne({ _id: convertToObjectId(productId) }).lean();
 };
 
+const checkProductByServer = async (products) => {
+    return await Promise.all(
+        products.map(async (product) => {
+            const foundProduct = await getProductById(product.productId);
+
+            if (foundProduct) {
+                return {
+                    productId: foundProduct._id,
+                    price: foundProduct.productPrice,
+                    quantity: foundProduct.productQuantity,
+                };
+            }
+        })
+    );
+};
+
 const searchProductByUser = async ({ keySearch }) => {
     const regexSearch = new RegExp(keySearch);
     const results = await product
@@ -101,6 +117,7 @@ module.exports = {
     findProductById,
     getAllProducts,
     getProductById,
+    checkProductByServer,
     searchProductByUser,
     publishProductByShop,
     unPublishProductByShop,

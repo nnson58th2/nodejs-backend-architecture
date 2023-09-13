@@ -8,7 +8,9 @@ const { apiKey, permission } = require('../auth/checkAuth');
 const accessRouter = require('./access');
 const productRouter = require('./product');
 const discountRouter = require('./discount');
+const inventoryRouter = require('./inventory');
 const cartRouter = require('./cart');
+const checkoutRouter = require('./checkout');
 
 // Check apiKey
 router.use(apiKey);
@@ -19,6 +21,8 @@ router.use(permission('0000'));
 router.use('/v1/api/shop', accessRouter);
 router.use('/v1/api/product', productRouter);
 router.use('/v1/api/discount', discountRouter);
+router.use('/v1/api/inventory', inventoryRouter);
 router.use('/v1/api/cart', cartRouter);
+router.use('/v1/api/checkout', checkoutRouter);
 
 module.exports = router;
