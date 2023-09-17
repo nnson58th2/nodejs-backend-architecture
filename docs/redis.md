@@ -49,3 +49,23 @@ Top 5 câu hỏi phổ biến:
     -   SET key value EX 60
     -   SETNX key value1
     -   SET lock_key unique_value NX PX 10000 (hệ thống phân tán)
+
+### HASH
+
+-   Cấu trúc Hash
+-   Các lệnh phổ biến
+    -   HSET user:01 name son
+    -   HSET user:01 name son age 25
+    -   HGET user:01 name
+    -   HMSET user:02 name son age 25
+    -   HDEL user:02 age
+    -   HLEN user:01
+    -   HGETALL user:01
+    -   HEXISTS user:01 age
+    -   HINCRBY user:01 age 1
+    -   HKEYS user:01
+    -   HVALS user:01
+-   Khi dùng nào Hash: Dùng làm giỏ hàng là phổ biến
+    -   HSET uid:01 name son age 25
+    -   HSET uid:02 name suong age 25
+    -   HSETALL uid:01
