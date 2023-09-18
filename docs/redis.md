@@ -69,3 +69,23 @@ Top 5 câu hỏi phổ biến:
     -   HSET uid:01 name son age 25
     -   HSET uid:02 name suong age 25
     -   HSETALL uid:01
+
+### LIST
+
+-   LPUSH list:01 a b c
+-   LRANGE list:01 0 -1
+-   RPUSH list:01 1 2 3
+-   LPOP list:01
+-   LPOP list:01 2
+-   RPOP list:01
+-   LRANGE list:01 0 3
+-   LRANGE list:01 1 3
+-   BLPOP list:01 0
+-   LINDEX list:01 2
+-   LLEN list:01
+-   LREM list:01 1 b
+-   LTRIM list:01 1 4
+-   EXISTS list:01
+-   LSET list:01 0 c-update
+-   LINSERT list:01 BEFORE b bb
+-   LINSERT list:01 AFTER 1 11
