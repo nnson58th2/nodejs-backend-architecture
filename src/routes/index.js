@@ -5,12 +5,17 @@ const router = express.Router();
 
 const { apiKey, permission } = require('../auth/checkAuth');
 
+// const { pushToLogDiscord } = require('../middlewares');
+
 const accessRouter = require('./access');
 const productRouter = require('./product');
 const discountRouter = require('./discount');
 const inventoryRouter = require('./inventory');
 const cartRouter = require('./cart');
 const checkoutRouter = require('./checkout');
+
+// // Send log to discord
+// router.use(pushToLogDiscord);
 
 // Check apiKey
 router.use(apiKey);
