@@ -89,3 +89,21 @@ Top 5 câu hỏi phổ biến:
 -   LSET list:01 0 c-update
 -   LINSERT list:01 BEFORE b bb
 -   LINSERT list:01 AFTER 1 11
+
+### SET (Tập hợp không thứ tự)
+
+-   SADD cr7 juve real manu
+-   SMEMBERS cr7
+-   SREM cr7 manu
+-   SCARD cr7 (lấy số lượng)
+-   SISMEMBER cr7 juve -> 1 (Tìm tồn tại)
+-   SRANDMEMBER cr7 1
+-   SPOP cr7 1
+-   SMOVE cr7 m10 real
+-   SMEMBER m10
+-   SMEMBER cr7 -> (empty array)
+
+-   SADD cr7 1 2 3 4 5 6 7
+-   SADD m10 5 6 7 8 9 10
+-   SINTER cr7 m10 (Tìm điểm chung)
+-   SDIFF cr7 m10 (Tìm điểm khác biệt)
