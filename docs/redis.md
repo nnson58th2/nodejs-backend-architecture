@@ -18,6 +18,8 @@ Top 5 câu hỏi phổ biến:
     -   Stream (mới trong phiên bản 5.0)
 -   Redis giải quyết cơ chế hết hạn dữ liệu thế nào?
 
+> docker exec -it redis-db redis-cli -> 127.0.0.1:6379
+
 ### STRING
 
 -   embstring (<= 44 bytes)
@@ -120,3 +122,13 @@ Top 5 câu hỏi phổ biến:
 -   ZRANGEBYSCORE pre:2023 75 90
 -   ZSCORE pre:2023 tipjs
 -   ZREVRANGE pre:2023 0 2 WITHSCORES
+
+### TRANSACTION
+
+-   MULTI -> OK (Bắt đầu transaction)
+-   SET k1 v1 -> QUEUED
+-   SET k2 v2 -> QUEUED
+-   GET k1 -> QUEUED
+-   EXEC (Tiến hàng thực thi các câu lệnh trong QUEUED)
+-   DISCARD -> OK (Huỷ bỏ câu lệnh trong QUEUED ngay trước đó)
+-   WATCH (Khi một giao dịch được thực hiện, nếu giá trị bất kỳ của một key chung ta đang theo dõi mà bị thay đổi bới 1 luồng xử lý khác thì hàng đợi sẽ không được thực thi và huỷ bỏ khi EXEC)
