@@ -107,3 +107,16 @@ Top 5 câu hỏi phổ biến:
 -   SADD m10 5 6 7 8 9 10
 -   SINTER cr7 m10 (Tìm điểm chung)
 -   SDIFF cr7 m10 (Tìm điểm khác biệt)
+
+### ZSET (Tập hợp có thứ tự)
+
+-   ZADD pre:2023 89 manCity 84 arsenal 75 manu 71 new 67 liverpool
+-   ZREVRANGE pre:2023 0 -1 (Sắp xếp theo chiều thuận)
+-   ZRANGE pre:2023 0 -1 (Sắp xếp theo chiều ngược)
+-   ZADD pre:2023 60 tipjs
+-   ZREM pre:2023 tipjs
+-   ZCARD pre:2023
+-   ZINCRBY pre:2023 30 tipjs
+-   ZRANGEBYSCORE pre:2023 75 90
+-   ZSCORE pre:2023 tipjs
+-   ZREVRANGE pre:2023 0 2 WITHSCORES
