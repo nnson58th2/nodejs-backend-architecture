@@ -1,10 +1,10 @@
 'use strict';
 
-const redis = require('redis');
+const Redis = require('redis');
 const { promisify } = require('util');
 const { reservationInventory } = require('../models/repositories/inventory.repo');
 
-const redisClient = redis.createClient();
+const redisClient = Redis.createClient();
 
 const pExpire = promisify(redisClient.pExpire).bind(redisClient);
 const setNXAsync = promisify(redisClient.setNX).bind(redisClient);
