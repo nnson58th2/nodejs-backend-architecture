@@ -13,6 +13,7 @@ const discountRouter = require('./discount');
 const inventoryRouter = require('./inventory');
 const cartRouter = require('./cart');
 const checkoutRouter = require('./checkout');
+const commentRouter = require('./comment');
 
 // // Send log to discord
 // router.use(pushToLogDiscord);
@@ -29,5 +30,6 @@ router.use('/v1/api/discount', discountRouter);
 router.use('/v1/api/inventory', inventoryRouter);
 router.use('/v1/api/cart', cartRouter);
 router.use('/v1/api/checkout', checkoutRouter);
+router.use('/v1/api/comment', commentRouter);
 
 module.exports = router;
