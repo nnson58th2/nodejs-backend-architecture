@@ -39,3 +39,15 @@ Content-Type: application/json
 x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
 x-client-id: 64ea05bcfe9f4fe2000b610c
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTU1NzE5MjUsImV4cCI6MTY5NTc0NDcyNX0.GA3mj1eT9rcrER9q-fjTxbkvmGrBb8bt1gzib6I-erY
+
+### Delete a comment
+DELETE {{baseUrlDev}}
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTU1NzE5MjUsImV4cCI6MTY5NTc0NDcyNX0.GA3mj1eT9rcrER9q-fjTxbkvmGrBb8bt1gzib6I-erY
+
+{
+    "productId": "64ea0721adc4ef7aa282a5c3",
+    "commentId": "65105bd52248d6439a5082ba"
+}
