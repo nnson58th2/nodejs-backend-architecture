@@ -2,6 +2,7 @@
 
 const { removeUndefinedNullObject, updateNestedObjectParser } = require('../utils');
 
+const shopModel = require('../models/shop.model');
 const { product, electronic, clothing, furniture } = require('../models/product.model');
 
 const { BadRequestError } = require('../core/error.response');
@@ -16,6 +17,8 @@ const {
     updateProductById,
 } = require('../models/repositories/product.repo');
 const { insertInventory } = require('../models/repositories/inventory.repo');
+
+const { pushNotiToSystem } = require('./notification.service');
 
 // Define Factory class to create product
 class ProductFactory {
@@ -99,12 +102,25 @@ class Product {
     async createProduct(productId) {
         const productCreated = await product.create({ ...this, _id: productId });
 
-        // Add product stock in inventory collection
         if (productCreated) {
+            // Add product stock in inventory collection
             await insertInventory({
                 productId: productCreated._id,
                 shopId: this.productShop,
                 stock: this.productQuantity,
+            });
+
+            // Push notification to system collection
+            const shop = await shopModel.findById(this.productShop).lean();
+
+            pushNotiToSystem({
+                type: 'SHOP-001',
+                receivedId: 1,
+                senderId: this.productShop,
+                options: {
+                    productName: this.productName,
+                    shopName: shop?.name || this.productShop,
+                },
             });
         }
 

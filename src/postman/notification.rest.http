@@ -1,0 +1,9 @@
+@baseUrlDev=http://localhost:3055/v1/api/notification
+
+
+### Get a list notification by user
+GET {{baseUrlDev}}?userId=1&type=ALL
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTU3MzgwNjQsImV4cCI6MTY5NTkxMDg2NH0.oeDihJ2bDNayxG1mDCv4O7E0K91BGYOUnthGi4_Qqfg
