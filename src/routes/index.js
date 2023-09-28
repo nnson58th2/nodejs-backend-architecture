@@ -5,7 +5,7 @@ const router = express.Router();
 
 const { apiKey, permission } = require('../auth/checkAuth');
 
-// const { pushToLogDiscord } = require('../middlewares');
+const { pushToLogDiscord } = require('../middlewares');
 
 const accessRouter = require('./access');
 const productRouter = require('./product');
@@ -16,8 +16,8 @@ const checkoutRouter = require('./checkout');
 const commentRouter = require('./comment');
 const notificationRouter = require('./notification');
 
-// // Send log to discord
-// router.use(pushToLogDiscord);
+// Send log to discord
+router.use(pushToLogDiscord);
 
 // Check apiKey
 router.use(apiKey);

@@ -3,9 +3,9 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
 
-const Routes = require('./routes');
-
 require('dotenv').config();
+
+const Routes = require('./routes');
 
 const app = express();
 

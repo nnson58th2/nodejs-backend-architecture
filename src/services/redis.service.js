@@ -6,6 +6,10 @@ const { reservationInventory } = require('../models/repositories/inventory.repo'
 
 const redisClient = Redis.createClient();
 
+redisClient.on('connect', () => console.log('Connected to Redis'));
+redisClient.on('error', (err) => console.log('Redis Client Error:: ', err));
+redisClient.connect();
+
 const pExpire = promisify(redisClient.pExpire).bind(redisClient);
 const setNXAsync = promisify(redisClient.setNX).bind(redisClient);
 

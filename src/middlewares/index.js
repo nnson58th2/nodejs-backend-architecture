@@ -1,6 +1,6 @@
 'use strict';
 
-const Logger = require('../loggers/discord.log.v2');
+const Logger = require('../loggers/discord.log');
 
 const pushToLogDiscord = async (req, res, next) => {
     try {

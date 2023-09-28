@@ -21,10 +21,10 @@ class Database {
         mongoose
             .connect(connectString)
             .then(() => {
-                console.log('Connected Mongodb Success');
+                console.log('Connected to Mongodb');
                 countConnect();
             })
-            .catch((err) => console.log(`Error Connect!!`));
+            .catch((err) => console.log('MongoDB Error:: ', err));
     }
 
     static getInstance() {
