@@ -24,3 +24,7 @@ docker run -d --name kafkaMQ --hostname localhost \
  -e KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@localhost:9093 \
  -e KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER \
  bitnami/kafka:latest
+
+docker pull rabbitmq:3-management
+docker run -d --name rabbitMQ -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+docker exec -it rabbitMQ bash
