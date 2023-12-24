@@ -28,6 +28,7 @@ docker run -d --name kafkaMQ --hostname localhost \
 docker pull rabbitmq:3-management
 docker run -d --name rabbitMQ -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 docker exec -it rabbitMQ bash
+rabbitmqctl change_password <USERNAME> <NEWPASSWORD>
 
 docker pull mysql
 docker run --name mysql-db -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 mysql

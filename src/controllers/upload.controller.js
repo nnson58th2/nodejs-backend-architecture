@@ -27,6 +27,20 @@ class UploadController {
             metadata: result,
         }).send(res);
     };
+
+    uploadImageFromLocalS3 = async (req, res, next) => {
+        const { file } = req;
+        if (!file) throw new BadRequestError('File missing from local storage!');
+
+        const result = await UploadService.uploadImageFromLocalS3({
+            file,
+        });
+
+        new OK({
+            message: 'File uploaded use S3Client successfully.',
+            metadata: result,
+        }).send(res);
+    };
 }
 
 module.exports = new UploadController();
