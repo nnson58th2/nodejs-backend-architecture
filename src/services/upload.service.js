@@ -1,7 +1,11 @@
 'use strict';
 
+const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
+
 const cloudinary = require('../configs/cloudinary.config');
-const { S3, PutObjectCommand } = require('../configs/s3.config');
+const { S3, GetObjectCommand, PutObjectCommand } = require('../configs/s3.config');
+
+const { randomImageName } = require('../utils');
 
 // 1. Upload from ULR image
 const uploadImageFromUrl = async () => {
@@ -47,24 +51,22 @@ const uploadImageFromLocal = async ({ path, folderName = 'product/230698' }) => 
 // Upload file use S3Client
 const uploadImageFromLocalS3 = async ({ file }) => {
     try {
+        const imageName = randomImageName();
         const command = new PutObjectCommand({
             Bucket: process.env.AWS_BUCKET_NAME,
-            Key: file.originalname || 'unknown',
+            Key: imageName,
             Body: file.buffer,
             ContentType: 'image/jpeg', // that is what your need!
         });
 
         const result = await S3.send(command);
 
-        return {
-            imageUrl: result.secure_url,
-            shopId: '230698',
-            thumbnailUrl: await cloudinary.url(result.public_id, {
-                height: 100,
-                width: 100,
-                format: 'jpg',
-            }),
-        };
+        const signedUrl = new GetObjectCommand({
+            Bucket: process.env.AWS_BUCKET_NAME,
+            Key: imageName,
+        });
+        const url = await getSignedUrl(S3, signedUrl, { expiresIn: 3600 });
+        return url;
     } catch (error) {
         console.error('Upload image from file use S3Client error:: ', error.message);
     }

@@ -5,6 +5,8 @@ const { Types } = require('mongoose');
 
 const convertToObjectId = (id) => new Types.ObjectId(id);
 
+const randomImageName = () => crypto.randomBytes(16).toString('hex');
+
 const getInfoData = ({ fields = [], object = {} }) => {
     return _.pick(object, fields);
 };
@@ -51,6 +53,7 @@ const getUnSelectData = (select = []) => {
 
 module.exports = {
     convertToObjectId,
+    randomImageName,
     getInfoData,
     getSelectData,
     getUnSelectData,
