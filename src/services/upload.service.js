@@ -1,6 +1,7 @@
 'use strict';
 
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
+// const { getSignedUrl } = require('@aws-sdk/cloudfront-signer');
 
 const cloudinary = require('../configs/cloudinary.config');
 const { S3, GetObjectCommand, PutObjectCommand } = require('../configs/s3.config');
