@@ -6,4 +6,12 @@
 -   sudo systemctl status mysqld
 
 -   sudo cat /var/log/mysqld.log | grep "temporary password"
--   ALTER USER root@'localhost' INDENTIFIED WITH mysql_native_password BY 'AaaaBbbb1!';
+-   ALTER USER root@'localhost' IDENTIFIED WITH mysql_native_password BY 'AaaaBbbb1!';
+
+-   scp -i "~/.ssh/key.pem" ~/Downloads/mysqlsampledatabase.sql ec2-user@ec2-54-221-1223-136.compute-1.amazonaws.com:~/
+-   source mysqlsampledatabase.sql
+
+-   CREATE USER 'tipjs'@'localhost' IDENTIFIED WITH mysql_native_password by 'BbbbAaaa1!';
+-   GRANT ALL PRIVILEGES ON SHOPDEV.\* TO 'tipjs'@'localhost';
+-   CREATE USER 'anonystick'@'%' IDENTIFIED WITH mysql_native_password by '2024Aaaa1!
+-   GRANT ALL PRIVILEGES ON \*.\* TO 'anonystick'@'%';
