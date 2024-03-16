@@ -1,0 +1,10 @@
+@baseUrlDev=http://localhost:3055/v1/api/profile
+
+
+### Get all profiles
+GET {{baseUrlDev}}/view-any?role=admin
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+
+### Get one profile
+GET {{baseUrlDev}}/view-own?role=shop
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
