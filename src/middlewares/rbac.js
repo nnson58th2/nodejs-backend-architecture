@@ -2,6 +2,7 @@
 
 const { AuthFailureError } = require('../core/error.response');
 const roleMiddleware = require('./role.middleware');
+const rbacService = require('../services/rbac.service');
 
 /**
  *
@@ -11,6 +12,12 @@ const roleMiddleware = require('./role.middleware');
 const grantAccess = (action, resource) => {
     return async (req, res, next) => {
         try {
+            roleMiddleware.setGrants(
+                await rbacService.roleList({
+                    userId: 9999,
+                })
+            );
+
             const roleName = req.query.role;
             const permission = roleMiddleware.can(roleName)[action](resource);
             if (!permission.granted) throw new AuthFailureError(`You don't have enough permissions!`);

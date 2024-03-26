@@ -1,0 +1,99 @@
+@baseUrlDev=http://localhost:3055/v1/api/rbac
+
+### Create a new resource
+POST {{baseUrlDev}}/resources
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTU3MzgwNjQsImV4cCI6MTY5NTkxMDg2NH0.oeDihJ2bDNayxG1mDCv4O7E0K91BGYOUnthGi4_Qqfg
+
+{
+    "name": "balance",
+    "slug": "p00002",
+    "description": "balance global"
+}
+
+### Get list resources
+GET {{baseUrlDev}}/resources
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+
+
+
+### Create a new role for admin
+POST {{baseUrlDev}}/roles
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTU3MzgwNjQsImV4cCI6MTY5NTkxMDg2NH0.oeDihJ2bDNayxG1mDCv4O7E0K91BGYOUnthGi4_Qqfg
+
+{
+    "name": "admin",
+    "slug": "a00001",
+    "description": "Admin extend from shop or user",
+    "grants": [
+        {
+            "resource_id": "65fc60f80b2b123f2ff726ea",
+            "actions": ["read:any", "update:any", "delete:any"],
+            "attributes": "*"
+        },
+        {
+            "resource_id": "65fc61560b2b123f2ff726ed",
+            "actions": ["read:any", "update:any", "delete:any"],
+            "attributes": "*, !amount"
+        }
+    ]
+}
+
+### Create a new role for shop
+POST {{baseUrlDev}}/roles
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTU3MzgwNjQsImV4cCI6MTY5NTkxMDg2NH0.oeDihJ2bDNayxG1mDCv4O7E0K91BGYOUnthGi4_Qqfg
+
+{
+    "name": "shop",
+    "slug": "a00002",
+    "description": "Extend from shop",
+    "grants": [
+        {
+            "resource_id": "65fc60f80b2b123f2ff726ea",
+            "actions": ["read:own", "update:own"],
+            "attributes": "*"
+        },
+        {
+            "resource_id": "65fc61560b2b123f2ff726ed",
+            "actions": ["read:own"],
+            "attributes": "*"
+        }
+    ]
+}
+
+### Create a new role for user
+POST {{baseUrlDev}}/roles
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE2OTU3MzgwNjQsImV4cCI6MTY5NTkxMDg2NH0.oeDihJ2bDNayxG1mDCv4O7E0K91BGYOUnthGi4_Qqfg
+
+{
+    "name": "user",
+    "slug": "a00003",
+    "description": "Extend from user",
+    "grants": [
+        {
+            "resource_id": "65fc60f80b2b123f2ff726ea",
+            "actions": ["read:own", "update:own"],
+            "attributes": "*"
+        }
+    ]
+}
+
+
+### Get list roles
+GET {{baseUrlDev}}/roles
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
