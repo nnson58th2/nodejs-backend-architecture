@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
 const { v4: uuidv4 } = require('uuid');
@@ -10,6 +11,16 @@ const systemLogger = require('./loggers/system.log');
 const Routes = require('./routes');
 
 const app = express();
+
+// Cors
+const corsOptions = {
+    origin: 'http://localhost:3055',
+    method: 'GET,HEAD,POST,PUT,PATCH,DELETE',
+    credential: true,
+    optionSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 // Init Middlewares
 app.use(morgan('dev'));
