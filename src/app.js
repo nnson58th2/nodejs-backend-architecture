@@ -2,9 +2,11 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const compression = require('compression');
+const { v4: uuidv4 } = require('uuid');
 
 require('dotenv').config();
 
+const systemLogger = require('./loggers/system.log');
 const Routes = require('./routes');
 
 const app = express();
@@ -23,6 +25,20 @@ app.use(
 // Init DB
 require('./dbs/init.mongodb');
 
+// Log request
+app.use((req, res, next) => {
+    const requestId = req.headers['x-request-id'];
+    req.requestId = requestId || uuidv4();
+
+    systemLogger.log(`Input params::${req.method}`, [
+        req.path,
+        { requestId: req.requestId },
+        req.method === 'POST' || req.method === 'PUT' ? req.body : req.query,
+    ]);
+
+    next();
+});
+
 // Init routes
 app.use('/', Routes);
 
@@ -36,6 +52,9 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
     const statusCode = error.status || 500;
     const message = error.message || 'Internal Server Error!';
+
+    const resMessage = `Status Code:${statusCode} - ${Date.now() - error.now}ms - Response: ${JSON.stringify(error)}`;
+    systemLogger.error(resMessage, [req.path, { requestId: req.requestId }, { message }]);
 
     return res.status(statusCode).json({
         code: statusCode,

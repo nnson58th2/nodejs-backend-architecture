@@ -11,7 +11,7 @@ class SystemLogger {
         });
 
         this.logger = createLogger({
-            format: format.combine(format.timestamp({ format: 'YYY-MM-DD HH:mm:ss' }), formatPrint),
+            format: format.combine(format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), formatPrint),
             transports: [
                 new transports.Console(),
                 new transports.DailyRotateFile({
@@ -21,7 +21,7 @@ class SystemLogger {
                     zippedArchive: true, // true: backup log zipped archive
                     maxSize: '1m', // Dung lượng file log
                     maxFiles: '14d', // Nếu đạt thì sẽ xoá log trong vòng 14 ngày
-                    format: format.combine(format.timestamp({ format: 'YYY-MM-DD HH:mm:ss' }), formatPrint),
+                    format: format.combine(format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), formatPrint),
                     level: 'info',
                 }),
                 new transports.DailyRotateFile({
@@ -31,7 +31,7 @@ class SystemLogger {
                     zippedArchive: true, // true: backup log zipped archive
                     maxSize: '1m', // Dung lượng file log
                     maxFiles: '14d', // Nếu đạt thì sẽ xoá log trong vòng 14 ngày
-                    format: format.combine(format.timestamp({ format: 'YYY-MM-DD HH:mm:ss' }), formatPrint),
+                    format: format.combine(format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), formatPrint),
                     level: 'error',
                 }),
             ],

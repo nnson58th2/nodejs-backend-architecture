@@ -7,14 +7,7 @@ class ErrorResponse extends Error {
     constructor(message, status) {
         super(message);
         this.status = status;
-
-        // Log the error use winston
-        systemLogger.error(this.message, {
-            context: '/path',
-            requestId: 'UUUAAA',
-            message: this.message,
-            metadata: {},
-        });
+        this.now = Date.now();
     }
 }
 
