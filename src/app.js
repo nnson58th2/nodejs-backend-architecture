@@ -36,6 +36,10 @@ app.use(
 // Init DB
 require('./dbs/init.mongodb');
 
+// Init Redis
+const redis = require('./dbs/init.redis');
+redis.initRedis();
+
 // Log request
 app.use((req, res, next) => {
     const requestId = req.headers['x-request-id'];
