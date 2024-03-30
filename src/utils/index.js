@@ -51,6 +51,15 @@ const getUnSelectData = (select = []) => {
     return Object.fromEntries(select.map((el) => [el, 0]));
 };
 
+const replacePlaceholder = (template, params) => {
+    Object.keys(params).forEach((key) => {
+        const placeholder = `{{${key}}}`;
+        template = template.replace(new RegExp(placeholder, 'g'), params[key]);
+    });
+
+    return template;
+};
+
 module.exports = {
     convertToObjectId,
     randomImageName,
@@ -59,4 +68,5 @@ module.exports = {
     getUnSelectData,
     removeUndefinedNullObject,
     updateNestedObjectParser,
+    replacePlaceholder,
 };

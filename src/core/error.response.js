@@ -1,7 +1,6 @@
 'use strict';
 
 const { StatusCodes, ReasonPhrases } = require('../utils/httpStatusCode');
-const systemLogger = require('../loggers/system.log');
 
 class ErrorResponse extends Error {
     constructor(message, status) {
