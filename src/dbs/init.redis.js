@@ -70,7 +70,9 @@ const getRedis = () => {
 };
 
 // Close redis connection
-const closeRedis = () => {};
+const closeRedis = async () => {
+    return await client.quit();
+};
 
 module.exports = {
     initRedis,
