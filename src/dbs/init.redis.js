@@ -71,7 +71,9 @@ const getRedis = () => {
 
 // Close redis connection
 const closeRedis = async () => {
-    return await client.quit();
+    if (Object.keys(client).length > 0) {
+        return await client.quit();
+    }
 };
 
 module.exports = {
