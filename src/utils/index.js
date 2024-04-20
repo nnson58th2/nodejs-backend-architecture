@@ -60,6 +60,10 @@ const replacePlaceholder = (template, params) => {
     return template;
 };
 
+const randomProductId = () => {
+    return Math.floor(Math.random() * 899999 + 100000);
+};
+
 module.exports = {
     convertToObjectId,
     randomImageName,
@@ -69,4 +73,5 @@ module.exports = {
     removeUndefinedNullObject,
     updateNestedObjectParser,
     replacePlaceholder,
+    randomProductId,
 };

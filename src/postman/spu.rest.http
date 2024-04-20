@@ -1,0 +1,98 @@
+@baseUrlDev=http://localhost:3055/v1/api/product/spu
+
+
+### Create a new spu
+POST {{baseUrlDev}}
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE3MTM2MjE1MjUsImV4cCI6MTcxMzc5NDMyNX0.vcDOypJMuDKqlr544kV4fisql7ZwvpmdyjHrU_3DtP8
+
+{
+    "product_name": "Ao thun nam cao cap",
+    "product_thumb": "product_thumb",
+    "product_description": "Hight-quanlity ao thun",
+    "product_price": 100.000,
+    "product_quantity": 10,
+    "product_category": ["10001","10002"],
+    "product_attributes": [
+        {
+            "attribute_id": "20005",
+            "attribute_values": [
+                { "value_id": 1 },
+                { "value_id": 2 }
+            ]
+        }
+    ],
+    "product_variations": [
+        {
+            "images": [],
+            "name": "color",
+            "options": ["red", "green"]
+        },
+        {
+            "images": [],
+            "name": "size",
+            "options": ["S", "M", "L"]
+        }
+    ],
+    "sku_list": [
+        {
+            "sku_id": "spu-001_shop-001",
+            "sku_tier_idx": [0, 0],
+            "sku_default": false,
+            "sku_slug": "sku-001",
+            "sku_sort": 10,
+            "sku_price": 100,
+            "sku_stock": 20,
+            "product_id": "p00001",
+            "isDraft": false,
+            "isPublished": true
+        },
+        {
+            "sku_id": "spu-002_shop-001",
+            "sku_tier_idx": [0, 1],
+            "sku_default": false,
+            "sku_slug": "sku-002",
+            "sku_sort": 20,
+            "sku_price": 100,
+            "sku_stock": 20,
+            "product_id": "p00001",
+            "isDraft": false,
+            "isPublished": true
+        },
+        {
+            "sku_id": "spu-003_shop-001",
+            "sku_tier_idx": [1, 0],
+            "sku_default": false,
+            "sku_slug": "sku-003",
+            "sku_sort": 30,
+            "sku_price": 150,
+            "sku_stock": 20,
+            "product_id": "p00001",
+            "isDraft": false,
+            "isPublished": true
+        },
+        {
+            "sku_id": "spu-004_shop-001",
+            "sku_tier_idx": [1, 1],
+            "sku_default": false,
+            "sku_slug": "sku-004",
+            "sku_sort": 40,
+            "sku_price": 150,
+            "sku_stock": 20,
+            "product_id": "p00001",
+            "isDraft": false,
+            "isPublished": true
+        }
+    ],
+    "isDraft": true,
+    "isPublished": false
+}
+
+### Find one sku
+GET {{baseUrlDev}}/select-variation?sku_id=620343.612396
+Content-Type: application/json
+x-api-key: 9acea3ac6cc47503e813c124d8a5b8a7f6185ea714a8274df81dd0f735dd8cd67bb53c9eee65ecdb2cfa51d3f84c451a043c34f08da0668417717319aa4f1c46
+x-client-id: 64ea05bcfe9f4fe2000b610c
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVhMDViY2ZlOWY0ZmUyMDAwYjYxMGMiLCJlbWFpbCI6InNob3B0aXBqc0BnbWFpbC5jb20iLCJpYXQiOjE3MTM2MjE1MjUsImV4cCI6MTcxMzc5NDMyNX0.vcDOypJMuDKqlr544kV4fisql7ZwvpmdyjHrU_3DtP8

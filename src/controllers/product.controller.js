@@ -3,6 +3,8 @@
 const { CREATED, OK } = require('../core/success.response');
 const ProductService = require('../services/product.service');
 const ProductServiceX = require('../services/product.service.xxx');
+const SpuService = require('../services/spu.service');
+const SkuService = require('../services/sku.service');
 
 class ProductController {
     // QUERY
@@ -89,6 +91,33 @@ class ProductController {
             metadata: result,
         }).send(res);
     };
+
+    // SPU, SKU
+    createSpu = async (req, res) => {
+        const payload = {
+            ...req.body,
+            product_shop: req.user.userId,
+        };
+
+        const result = await SpuService.createSpu(payload);
+        new CREATED({
+            message: 'Create a new SPU successfully',
+            metadata: result,
+        }).send(res);
+    };
+    findOneSku = async (req, res) => {
+        const payload = {
+            sku_id: req.query.sku_id,
+            product_id: req.query.product_id,
+        };
+
+        const result = await SkuService.findOneSku(payload);
+        new OK({
+            message: 'Get one sku',
+            metadata: result,
+        }).send(res);
+    };
+    // END SPU, SKU
     // END POST
 
     // PATCH

@@ -28,10 +28,4 @@ const skuSchema = new Schema(
     }
 );
 
-// Document middleware: runs before .save and .create()...
-skuSchema.pre('save', function (next) {
-    this.sku_slug = slugify(this.productName, { lower: true });
-    next();
-});
-
 module.exports = model(DOCUMENT_NAME, skuSchema);

@@ -37,9 +37,6 @@ const spuSchema = new Schema(
     }
 );
 
-// Create index for search
-spuSchema.index({ productName: 'text', productDescription: 'text' });
-
 // Document middleware: runs before .save and .create()...
 spuSchema.pre('save', function (next) {
     this.product_slug = slugify(this.product_name, { lower: true });
