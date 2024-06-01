@@ -5,6 +5,8 @@ const express = require('express');
 const { authentication } = require('../../auth/authUtils');
 const asyncHandler = require('../../helpers/asyncHandler');
 
+const productMiddleware = require('../../middlewares/productCache.middleware');
+
 const productController = require('../../controllers/product.controller');
 
 const router = express.Router();
@@ -12,7 +14,7 @@ const router = express.Router();
 router.get('/', asyncHandler(productController.getAllProducts));
 router.get('/search', asyncHandler(productController.getListSearchProducts));
 router.get('/:productId', asyncHandler(productController.getProductById));
-router.get('/spu/select-variation', asyncHandler(productController.findOneSku));
+router.get('/spu/select-variation', productMiddleware.readCache, asyncHandler(productController.findOneSku)); // Add variation parameter
 
 router.use(authentication);
 

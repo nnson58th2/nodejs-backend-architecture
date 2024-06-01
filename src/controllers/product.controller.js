@@ -113,6 +113,7 @@ class ProductController {
 
         const result = await SkuService.findOneSku(payload);
         new OK({
+            loadedFrom: 'dbs',
             message: 'Get one sku',
             metadata: result,
         }).send(res);

@@ -15,8 +15,9 @@ class SuccessResponse {
 }
 
 class OK extends SuccessResponse {
-    constructor({ message, statusCode = StatusCodes.OK, reasonStatusCode = ReasonPhrases.OK, metadata, options }) {
+    constructor({ message, statusCode = StatusCodes.OK, reasonStatusCode = ReasonPhrases.OK, metadata, loadedFrom, options }) {
         super({ message, statusCode, reasonStatusCode, metadata });
+        this.loadedFrom = loadedFrom;
         this.options = options;
     }
 }

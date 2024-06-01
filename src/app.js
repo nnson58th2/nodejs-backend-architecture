@@ -40,6 +40,10 @@ require('./dbs/init.mongodb');
 const redis = require('./dbs/init.redis');
 redis.initRedis();
 
+// Init IORedis
+const ioredis = require('./dbs/init.ioredis');
+ioredis.init({ IOREDIS_IS_ENABLED: true });
+
 // Log request
 app.use((req, res, next) => {
     const requestId = req.headers['x-request-id'];
